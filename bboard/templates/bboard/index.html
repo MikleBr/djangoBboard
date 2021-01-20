@@ -1,0 +1,26 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+    {%  for bb in bbs %}
+    <div class='post'>
+        <div class='post__container'>
+            <div class='post__title'>
+                <h2>{{ bb.title }}</h2>
+            </div>
+            
+            <div class="post__content">        <p>{{ bb.content }}</p></div>
+
+            <div class='post__price'>
+                <p>{{ bb.price }} руб.</p>
+            </div>
+
+            <div class='post__date'>
+                <p>{{ bb.published|date:'d.m.Y H:i' }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+
