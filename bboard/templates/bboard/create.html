@@ -6,7 +6,30 @@
     <h2>Добавление объявления</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.non_field_errors }}
+        <div class="form__input">
+            {{ form.title.errors }}
+            <label for="{{ form.title.id_for_label }}">Товар</label>
+            {{ form.title }}
+        </div>
+        <div class="form__input">
+            {{ form.content.errors }}
+            <label for="{{ form.content.id_for_label }}">Описание</label>
+            {{ form.content }}
+        </div>
+        <div class="form__d-input">
+            <div class="form__price">
+                {{ form.price.errors }}
+                <label for="{{ form.price.id_for_label }}">Цена</label>
+                {{ form.price }}
+            </div>
+
+            <div class="form__rubric">
+                {{ form.rubric.errors }}
+                <label for="{{ form.rubric.id_for_label }}">Рубрика</label>
+                {{ form.rubric }}
+            </div>
+        </div>
         <input type="submit" value="Добавить">
     </form>
 
